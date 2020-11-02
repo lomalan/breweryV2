@@ -13,7 +13,6 @@ import java.util.UUID;
  * Created by lomalan
  *
  * */
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
