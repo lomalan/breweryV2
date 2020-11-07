@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-@Component
+//@Component
 @Slf4j
 public class BeerLoader implements CommandLineRunner {
 
@@ -27,7 +27,7 @@ public class BeerLoader implements CommandLineRunner {
     private void loadBeerObjects() {
         if (beerDao.count() == 0) {
             beerDao.save(Beer.builder()
-                    .style(BeerStyleEnum.ALE)
+                    .beerStyle(BeerStyleEnum.ALE.getName())
                     .quantityToBrew(200)
                     .upc(1111111L)
                     .price(BigDecimal.TEN)
