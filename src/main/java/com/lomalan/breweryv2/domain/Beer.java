@@ -1,5 +1,6 @@
 package com.lomalan.breweryv2.domain;
 
+import com.lomalan.breweryv2.web.model.BeerStyleEnum;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -21,7 +22,7 @@ public class Beer {
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Type(type = "uuid-char")
-    @Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
+    @Column(length = 36, columnDefinition = "varchar(36)", updatable = false, nullable = false)
     private UUID id;
     @Version
     private Long version;
@@ -35,7 +36,8 @@ public class Beer {
 
     private String beerName;
 
-    private String beerStyle;
+    @Enumerated(EnumType.STRING)
+    private BeerStyleEnum beerStyle;
 
     @Column(unique = true)
     private Long upc;

@@ -19,7 +19,7 @@ class BeerMapperTest {
 
     @Test
     void mapBeerDtoToBeer() {
-        BeerDto beerDto = BeerDto.builder().beerName("Name").upc(111L).price(BigDecimal.TEN).style(BeerStyleEnum.ALE).build();
+        BeerDto beerDto = BeerDto.builder().beerName("Name").upc(111L).price(BigDecimal.TEN).beerStyle(BeerStyleEnum.ALE).build();
         Beer beer = testObject.beerDtoToBeer(beerDto);
 
         assertNotNull(beer);

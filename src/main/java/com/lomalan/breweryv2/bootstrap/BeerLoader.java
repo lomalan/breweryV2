@@ -27,7 +27,7 @@ public class BeerLoader implements CommandLineRunner {
     private void loadBeerObjects() {
         if (beerDao.count() == 0) {
             beerDao.save(Beer.builder()
-                    .beerStyle(BeerStyleEnum.ALE.getName())
+                    .beerStyle(BeerStyleEnum.ALE)
                     .quantityToBrew(200)
                     .upc(1111111L)
                     .price(BigDecimal.TEN)

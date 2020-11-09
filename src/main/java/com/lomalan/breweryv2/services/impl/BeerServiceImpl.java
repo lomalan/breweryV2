@@ -40,7 +40,7 @@ public class BeerServiceImpl implements BeerService {
         Beer beer = beerDao.findById(beerId).orElseThrow(() -> new IllegalArgumentException("Beer not found"));
 
         beer.setBeerName(beerDto.getBeerName());
-        beer.setBeerStyle(beerDto.getStyle().getName());
+        beer.setBeerStyle(beerDto.getBeerStyle());
         beer.setPrice(beerDto.getPrice());
         beer.setUpc(beerDto.getUpc());
 

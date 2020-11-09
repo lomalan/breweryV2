@@ -1,7 +1,6 @@
 package com.lomalan.breweryv2.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lomalan.breweryv2.domain.Beer;
 import com.lomalan.breweryv2.services.BeerService;
 import com.lomalan.breweryv2.web.model.BeerDto;
 import com.lomalan.breweryv2.web.model.BeerStyleEnum;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -55,7 +53,7 @@ class BeerControllerTest {
     void saveBeer() throws Exception {
         BeerDto build = BeerDto.builder()
                 .beerName("Name").price(BigDecimal.TEN)
-                .style(BeerStyleEnum.ALE)
+                .beerStyle(BeerStyleEnum.ALE)
                 .upc(11L)
                 .build();
         String beerDtoJson = objectMapper.writeValueAsString(build);
@@ -69,7 +67,7 @@ class BeerControllerTest {
     @Test
     void updateBeer() throws Exception {
         BeerDto build = BeerDto.builder()
-                .beerName("Name").style(BeerStyleEnum.ALE).price(BigDecimal.TEN).
+                .beerName("Name").beerStyle(BeerStyleEnum.ALE).price(BigDecimal.TEN).
                         upc(11L)
                 .build();
         String beerDtoJson = objectMapper.writeValueAsString(build);
